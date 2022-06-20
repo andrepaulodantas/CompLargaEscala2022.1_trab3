@@ -1,0 +1,86 @@
+service: serverlessrestapi
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+functions:
+  cep:
+    handler: handler.cep
+    events:
+      - http:
+          path: /consulta/:cep
+          method: get
+          cors: true
+  temp:
+    handler: handler.temp
+    events:
+      - http:
+          path: /api/celsiusToFahrenheit/:celsius
+          method: get
+          cors: true 
+  books:
+    handler: handler.books
+    events:
+      - http:
+          path: /api/books
+          method: get
+          cors: true
+  getbooks:
+    handler: handler.getbooks
+    events:
+      - http:
+          path: /api/book/:id
+          method: get
+          cors: true 
+  postbooks:
+    handler: handler.postbooks
+    events:
+      - http:
+          path: /api/books
+          method: post
+          cors: true
+  putbooks:
+    handler: handler.postbooks
+    events:
+      - http:
+          path: /api/book/:id
+          method: put
+          cors: true
+  delbooks:
+    handler: handler.delbooks
+    events:
+      - http:
+          path: /api/book/:id
+          method: delete
+          cors: true
+  createUser:
+    handler: handler.createUser
+    events:
+      - http:
+          path: user
+          method: post
+          cors: true
+  updateUser:
+    handler: handler.updateUser
+    events:
+      - http:
+          path: user/{id}
+          method: put
+          cors: true
+
+  deleteUser:
+    handler: handler.deleteUser
+    events:
+      - http:
+          path: user/{id}
+          method: delete
+          cors: true
+
+  user:
+    handler: handler.user
+    events:
+      - http:
+          path: user/{id}
+          method: get
+          cors: true
