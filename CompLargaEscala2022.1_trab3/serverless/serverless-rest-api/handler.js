@@ -8,7 +8,7 @@ var usersRouter = require('./routes/users');
 
 mongoose.Promise = Promise;
 
-const mongoString = 'mongodb+srv://authorify:authorify@cluster0.4z22m.mongodb.net/?retryWrites=true&w=majority'; // MongoDB Url
+const mongoString = ''; // MongoDB Url
 
 const createErrorResponse = (statusCode, message) => ({
   statusCode: statusCode || 501,
